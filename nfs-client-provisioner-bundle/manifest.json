@@ -1,0 +1,60 @@
+{
+    "manifest-revision": "1.0",
+    "charts": [
+      {
+        "archive": "charts/nfs-client-2.0.tgz",
+        "images": [
+          "image.repository",
+          "busyboximage.repository"
+        ],
+        "registries": null
+      }
+    ],
+    "images": [
+      {
+        "image": "nfs-client-provisioner",
+        "tag": "latest",
+        "references": [
+          {
+            "repository": "nfs-client-provisioner-s390x:latest",
+            "platform": {
+              "os": "linux",
+              "architecture": "s390x"
+            },
+            "archive": "images/nfs-client-provisioner-s390x.tar.gz"
+          },
+          {
+            "repository": "nfs-client-provisioner-amd64:latest",
+            "platform": {
+              "os": "linux",
+              "architecture": "amd64"
+            },
+            "archive": "images/nfs-client-provisioner-amd64.tar.gz"
+          }
+        ]
+      },
+      {
+        "image": "busybox",
+        "tag": "1.31",
+        "references": [
+          {
+            "repository": "busybox-s390x:1.31",
+            "platform": {
+              "os": "linux",
+              "architecture": "s390x"
+            },
+            "archive": "images/busybox-s390x.tar.gz"
+          },
+          {
+            "repository": "busybox-amd64:1.31",
+            "platform": {
+              "os": "linux",
+              "architecture": "amd64"
+            },
+            "archive": "images/busybox-amd64.tar.gz"
+          }
+        ]
+      }
+    ],
+    "pak-extensions": null
+  }
