@@ -1,0 +1,336 @@
+#>>>>>>>>>>>>> NFS Client Configuration <<<<<<<<<<<<<<<<<
+replicaCount:
+  __metadata:
+    name: replicaCount 
+    label: replicaCount
+    description: Number of provisioner instances to be deployed
+    type: number
+    immutable: false
+    required: true
+    hidden: true
+strategyType:
+  __metadata:
+    name: strategyType 
+    label: strategyType
+    description: Deployment strategy for deletion
+    type: string
+    immutable: false
+    required: false
+    hidden: true
+image:
+  __metadata:
+    name: nfs-full image 
+    label: nfs-full image
+    description: image name for nfs-full provisioner
+    immutable: false
+    required: false
+    hidden: true
+  repository:
+    __metadata:
+      name: image repository
+      label: image repository
+      description: image repository for nfs-full image
+      type: string
+      immutable: false
+      required: false
+      hidden: true
+  tag:
+    __metadata:
+      name: image tag
+      label: image tag
+      description: image tag for nfs-full image
+      type: string
+      immutable: false
+      required: false
+      hidden: true
+  pullPolicy:
+    __metadata:
+      name: image pullPolicy 
+      label: image pullPolicy
+      description: image pullPolicy for nfs-full image
+      type: string
+      immutable: false
+      required: false
+      hidden: true
+busyboximage:
+  __metadata:
+    name: Busybox image
+    label: Busybox image 
+    description: Busybox image for test pod
+    immutable: false
+    required: false
+    hidden: true
+  repository:
+    __metadata:
+      name: image repository
+      label: image repository
+      description: image repository for Busybox image
+      type: string
+      immutable: false
+      required: false
+      hidden: true
+  tag:
+    __metadata:
+      name: image tag
+      label: image tag
+      description: image tag for Busybox image
+      type: string
+      immutable: false
+      required: false
+      hidden: true
+  pullPolicy:
+    __metadata:
+      name: image pullPolicy 
+      label: image pullPolicy
+      description: image pullPolicy for Busybox image
+      type: string
+      immutable: false
+      required: false
+      hidden: true
+nfs:
+  __metadata:
+    name: NFS Server Connection Info
+    label: NFS Server Connection Info 
+    description: Information to connect to the NFS Server
+  server:
+    __metadata:
+      name: NFS Server Worker Node Hostname or IP
+      label: NFS Worker Node Hostname or IP
+      description: Hostname or IP address of the Worker Node that will run the NFS server pod
+      type: string
+      immutable: false
+      required: true
+  path:
+    __metadata:
+      name: NFS Server Worker Node HostPath
+      label: NFS Server Worker Node HostPath
+      description: Path to Directory on Worker Node with backing Linux File System (i.e. ext4, xfs, etc. [NOT NFS] ) for NFS shares 
+      type: string
+      immutable: false
+      required: true
+  mountOptions:
+    __metadata:
+      name: NFS Mount options
+      label: NFS Mount options
+      description: By default using nfs version 4.1 and noatime
+      type: string
+      immutable: false
+      required: false
+StorageClass: 
+  __metadata:
+    name: StorageClass
+    label: StorageClass
+    description: Details to make the Kubernetes StorageClass for dynamic provisioning
+  create:
+    __metadata:
+      name: create StorageClass 
+      label: create StorageClass
+      description: Check this box to create StorageClass
+      type: boolean
+      immutable: false
+      required: false
+      hidden: true
+  name:
+    __metadata:
+      name: storageClassName
+      label: storageClassName
+      description: Name of the StorageClass
+      type: string
+      immutable: false
+      required: true
+  provisionerName:
+    __metadata:
+      name: Provisioner Name 
+      label: Provisioner Name 
+      description: Name of the dynamic provisioner
+      type: string
+      immutable: false
+      required: false
+      hidden: true
+  defaultClass:
+    __metadata:
+      name: Make new StorageClass the default
+      label: Make new StorageClass the default
+      description: Make the StorageClass created by this helm chart the default for k8s
+      type: boolean
+      immutable: false
+      required: false
+  allowVolumeExpansion:
+    __metadata:
+      name: allowVolumeExpansion 
+      label: allowVolumeExpansion
+      description: Allow nfs volumes to be expanded after creation
+      type: boolean
+      immutable: false
+      required: false
+      hidden: true
+  reclaimPolicy:
+    __metadata:
+      name: reclaimPolicy
+      label: reclaimPolicy
+      description: what happens to PV when PVC gets deleted
+      type: string
+      immutable: false
+      required: false
+      hidden: true
+rbac:
+  __metadata:
+    name: rbac
+    label: rbac
+    description: k8s rbac configuration
+    immutable: false
+    required: false
+    hidden: true
+  create:
+    __metadata:
+      name: create rbac
+      label: create rbac
+      description: create role based access control policies
+      type: boolean
+      immutable: false
+      required: false
+      hidden: true
+podSecurityPolicy:
+  __metadata:
+    name: podSecurityPolicy
+    label: podSecurityPolicy
+    description: podSecurityPolicy k8s configuration
+    immutable: false
+    required: false
+    hidden: true
+  enabled:
+    __metadata:
+      name: create podSecurityPolicy
+      label: create podSecurityPolicy
+      description: create podSecurityPolicy with permissions necessary for nfs-full to run properly
+      type: boolean
+      immutable: false
+      required: false
+      hidden: true
+priorityClass:
+  __metadata:
+    name: priorityClass
+    label: priorityClass
+    description: Prioritize storage provisioner over consumers. Check for kube-system. Un-check for other namespaces. 
+    immutable: false
+    required: false
+  run:
+    __metadata:
+      name: Run as system-cluster-critical
+      label: Run as system-cluster-critical
+      description: Use system-cluster-critical as priorityClass for nfs.io/nfs-full-provisioner. [Check box for kube-system namespace. Un-check for other namespaces] 
+      type: boolean
+      immutable: false
+      required: false
+  name:
+    __metadata:
+      name: priorityClassName
+      label: priorityClassName
+      description: name of priorityClass in Kubernetes
+      type: string
+      immutable: false
+      required: false
+      hidden: true
+serviceAccount:
+  __metadata:
+    name: serviceAccount
+    label: serviceAccount
+    description: Section on k8s serviceAccount
+    immutable: false
+    required: false
+    hidden: true
+  create:
+    __metadata:
+      name: create serviceAccount 
+      label: crate serviceAccount
+      description: create serviceAccount for nfs-full
+      type: boolean
+      immutable: false
+      required: false
+      hidden: true
+  name:
+    __metadata:
+      name: serviceAccountName
+      label: serviceAccountName
+      description: serviceAccountName of serviceAccount
+      type: string
+      immutable: false
+      required: false
+      hidden: true
+resources:
+  __metadata:
+    name: Resources
+    label: Resources
+    description: Resources Section
+    immutable: false
+    required: true
+  limits:
+    __metadata:
+      name: Limits
+      label: Limits
+      description: limits for container
+      immutable: false
+      required: true
+    cpu:
+      __metadata:
+        name: cpu
+        label: cpu
+        description: cpu limit (m is 1/1000 of 1 cpu)
+        type: string
+        immutable: false
+        required: true
+    memory:
+      __metadata:
+        name: memory
+        label: memory
+        description: memory limit 
+        type: string
+        immutable: false
+        required: true
+  requests:
+    __metadata:
+      name: Requests
+      label: Requests
+      description: requests for container for pod scheduling
+      immutable: false
+      required: true
+    cpu:
+      __metadata:
+        name: cpu
+        label: cpu
+        description: cpu request (m is 1/1000 of 1 cpu)
+        type: string
+        immutable: false
+        required: true
+    memory:
+      __metadata:
+        name: memory
+        label: memory
+        description: memory request
+        type: string
+        immutable: false
+        required: true
+nodeSelector:
+  __metadata:
+    name: nodeSelector
+    label: nodeSelector
+    description: nodeSelector to choose specific node
+    immutable: false
+    required: false
+    hidden: true
+tolerations:
+  __metadata:
+    name: tolerations
+    label: tolerations
+    description: tolerations for node scheduling
+    immutable: false
+    required: false
+    hidden: true
+affinity:
+  __metadata:
+    name: affinity 
+    label: affinity
+    description: Affinity to specific nodes
+    immutable: false
+    required: false
+    hidden: true

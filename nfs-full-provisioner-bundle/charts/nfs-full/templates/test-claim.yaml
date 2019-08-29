@@ -1,0 +1,12 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: test-claim-{{ template "nfs-full-provisioner.fullname" . }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  storageClassName: {{ .Values.StorageClass.name }}
+  resources:
+    requests:
+      storage: 1Mi

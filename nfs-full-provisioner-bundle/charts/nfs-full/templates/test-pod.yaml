@@ -1,0 +1,26 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: test-pod-{{ template "nfs-full-provisioner.fullname" . }}
+  labels:
+    app: test-{{ template "nfs-full-provisioner.name" . }}
+    chart: {{ template "nfs-full-provisioner.chart" . }}
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+spec:
+  containers:
+  - name: busybox-test
+    image: "{{ .Values.busyboximage.repository }}:{{ .Values.busyboximage.tag }}" 
+    command:
+      - "/bin/sh"
+    args:
+      - "-c"
+      - "touch /mnt/SUCCESS && exit 0 || exit 1"
+    volumeMounts:
+      - name: nfs-pvc
+        mountPath: "/mnt"
+  restartPolicy: "Never"
+  volumes:
+    - name: nfs-pvc
+      persistentVolumeClaim:
+        claimName: test-claim-{{ template "nfs-full-provisioner.fullname" . }}

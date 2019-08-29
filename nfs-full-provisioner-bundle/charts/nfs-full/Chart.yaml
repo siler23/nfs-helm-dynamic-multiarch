@@ -1,0 +1,18 @@
+apiVersion: v1
+appVersion: 2.0.0
+description: nfs.io/nfs-full-provisioner is an automatic provisioner that serves as
+  the NFS (ganesha) server and client, automatically creating Persistent Volumes.
+  To install in a namespace other than kube-system, un-check "Run as system-cluster-critical".
+  The recommended default requires installing in kube-system with "Run as system-cluster-critical".
+icon: https://raw.githubusercontent.com/siler23/nfs-kube-dynamic-multiarch/master/nfs/internet/nfs-chart-image.png
+keywords:
+- nfs
+- Storage
+- amd64
+- s390x
+- ICP
+maintainers:
+- email: garrett.lee.woodworth@ibm.com
+  name: Garrett Woodworth
+name: nfs-full
+version: "1.0"

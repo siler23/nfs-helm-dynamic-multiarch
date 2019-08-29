@@ -1,0 +1,30 @@
+{{- if .Values.podSecurityPolicy.enabled }}
+apiVersion: extensions/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: {{ template "nfs-full-provisioner.fullname" . }}
+  labels:
+    app: {{ template "nfs-full-provisioner.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+spec:
+  fsGroup:
+    rule: RunAsAny
+  allowedCapabilities:
+  - DAC_READ_SEARCH
+  - SYS_RESOURCE
+  runAsUser:
+    rule: RunAsAny
+  seLinux:
+    rule: RunAsAny
+  supplementalGroups:
+    rule: RunAsAny
+  volumes:
+  - configMap
+  - downwardAPI
+  - emptyDir
+  - persistentVolumeClaim
+  - secret
+  - hostPath
+{{- end }}
