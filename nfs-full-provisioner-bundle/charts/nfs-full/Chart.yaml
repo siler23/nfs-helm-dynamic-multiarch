@@ -11,6 +11,7 @@ keywords:
 - amd64
 - s390x
 - ICP
+- Open
 maintainers:
 - email: garrett.lee.woodworth@ibm.com
   name: Garrett Woodworth
