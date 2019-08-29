@@ -13,10 +13,6 @@ keywords:
 - ICP
 - OpenSource
 home: https://github.com/siler23/nfs-helm-dynamic-multiarch
-sources:
-  - https://github.com/siler23/nfs-helm-dynamic-multiarch
-  - https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client
-  - https://github.com/helm/charts/tree/master/stable/nfs-client-provisioner
 maintainers:
 - email: bart@verwilst.be
   name: verwilst

@@ -13,9 +13,6 @@ keywords:
 - ICP
 - OpenSource
 home: https://github.com/siler23/nfs-helm-dynamic-multiarch
-sources:
-  - https://github.com/siler23/nfs-helm-dynamic-multiarch
-  - https://github.com/kubernetes-incubator/external-storage/tree/master/nfs
 maintainers:
 - email: garrett.lee.woodworth@ibm.com
   name: Garrett Woodworth
