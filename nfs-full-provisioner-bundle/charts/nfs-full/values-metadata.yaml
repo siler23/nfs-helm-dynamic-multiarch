@@ -273,16 +273,16 @@ resources:
       required: false
     cpu:
       __metadata:
-        name: cpu
-        label: cpu
+        name: cpu request
+        label: cpu request
         description: cpu request (m is 1/1000 of 1 cpu)
         type: string
         immutable: false
         required: true
     memory:
       __metadata:
-        name: memory
-        label: memory
+        name: memory request
+        label: memory request
         description: memory request
         type: string
         immutable: false
@@ -296,16 +296,16 @@ resources:
       required: false
     cpu:
       __metadata:
-        name: cpu
-        label: cpu
+        name: cpu limit
+        label: cpu limit
         description: cpu limit (m is 1/1000 of 1 cpu)
         type: string
         immutable: false
         required: true
     memory:
       __metadata:
-        name: memory
-        label: memory
+        name: memory limit
+        label: memory limit
         description: memory limit 
         type: string
         immutable: false
