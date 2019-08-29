@@ -263,37 +263,14 @@ resources:
     label: Resources
     description: Resources Section
     immutable: false
-    required: true
-  limits:
-    __metadata:
-      name: Limits
-      label: Limits
-      description: limits for container
-      immutable: false
-      required: true
-    cpu:
-      __metadata:
-        name: cpu
-        label: cpu
-        description: cpu limit (m is 1/1000 of 1 cpu)
-        type: string
-        immutable: false
-        required: true
-    memory:
-      __metadata:
-        name: memory
-        label: memory
-        description: memory limit 
-        type: string
-        immutable: false
-        required: true
+    required: false
   requests:
     __metadata:
       name: Requests
       label: Requests
       description: requests for container for pod scheduling
       immutable: false
-      required: true
+      required: false
     cpu:
       __metadata:
         name: cpu
@@ -307,6 +284,29 @@ resources:
         name: memory
         label: memory
         description: memory request
+        type: string
+        immutable: false
+        required: true
+  limits:
+    __metadata:
+      name: Limits
+      label: Limits
+      description: limits for container
+      immutable: false
+      required: false
+    cpu:
+      __metadata:
+        name: cpu
+        label: cpu
+        description: cpu limit (m is 1/1000 of 1 cpu)
+        type: string
+        immutable: false
+        required: true
+    memory:
+      __metadata:
+        name: memory
+        label: memory
+        description: memory limit 
         type: string
         immutable: false
         required: true
