@@ -3,18 +3,24 @@ appVersion: 3.1.0
 description: nfs.io/nfs-client-provisioner is an automatic provisioner that uses your
   -->already configured<-- NFS server, automatically creating Persistent Volumes.
   To install in a namespace other than kube-system, un-check "Run as system-cluster-critical".
-  The recommended default requires installing in kube-system with "Run as system-cluster-critical".
-icon: https://raw.githubusercontent.com/siler23/nfs-kube-dynamic-multiarch/master/nfs-client/nfs_client_helm.png
+  The recommended default requires installing in kube-system with "Run as system-cluster-critical" checked.
+icon: https://raw.githubusercontent.com/siler23/nfs-helm-dynamic-multiarch/master/nfs_client_helm.png
 keywords:
 - nfs
 - Storage
 - amd64
 - s390x
 - ICP
+- OpenSource
+home: https://github.com/siler23/nfs-helm-dynamic-multiarch
+sources:
+  - https://github.com/siler23/nfs-helm-dynamic-multiarch
+  - https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client
+  - https://github.com/helm/charts/tree/master/stable/nfs-client-provisioner
 maintainers:
 - email: bart@verwilst.be
   name: verwilst
 - email: garrett.lee.woodworth@ibm.com
   name: Garrett Woodworth
 name: nfs-client
-version: "2.0"
+version: "2.0.0"

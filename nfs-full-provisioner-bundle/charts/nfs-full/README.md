@@ -27,8 +27,8 @@ The recommendation is to run this chart in the kube-system namespace with `Run a
 
 To uninstall/delete the `my-release` deployment:
 
-```console
-$ helm delete my-release
+```
+helm delete my-release --tls --purge
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.

@@ -11,7 +11,7 @@ keywords:
 - amd64
 - s390x
 - ICP
-- Open Source
+- OpenSource
 home: https://github.com/siler23/nfs-helm-dynamic-multiarch
 sources:
   - https://github.com/siler23/nfs-helm-dynamic-multiarch

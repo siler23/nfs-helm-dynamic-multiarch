@@ -26,8 +26,8 @@ The recommendation is to run this chart in the kube-system namespace with `Run a
 
 To uninstall/delete the `my-release` deployment:
 
-```console
-$ helm delete my-release
+```
+helm delete my-release --tls --purge
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -45,4 +45,3 @@ The following tables lists the configurable parameters of this chart and their d
 | `archiveOnDelete`                 | Archive pvc when deleting                   |          `false`                                          |
 | `NFS Server Hostname or IP`       | Hostname or IP of the NFS server            |          `null (ip or hostname)`                          |
 | `NFS Server Mount Path`           | Basepath of the mount point to be used      |          `/export/nfs-dynamic-k8s`                        |
-| `nfs.mountOptions`                | Mount options for nfs (e.g. 'nfsvers=3')    |          `null`                                           |

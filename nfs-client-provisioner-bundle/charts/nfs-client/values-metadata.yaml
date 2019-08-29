@@ -115,6 +115,7 @@ nfs:
       type: string
       immutable: false
       required: false
+      hidden: true
 StorageClass: 
   __metadata:
     name: StorageClass

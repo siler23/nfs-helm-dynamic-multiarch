@@ -2,7 +2,7 @@
     "manifest-revision": "1.0",
     "charts": [
       {
-        "archive": "charts/nfs-client-2.0.tgz",
+        "archive": "charts/nfs-client-2.0.0.tgz",
         "images": [
           "image.repository",
           "busyboximage.repository"

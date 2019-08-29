@@ -2,6 +2,11 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
+  labels:
+    app: {{ template "nfs-client-provisioner.name" . }}
+    chart: {{ template "nfs-client-provisioner.chart" . }}
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
   name: {{ .Values.StorageClass.name }}
 {{- if .Values.StorageClass.defaultClass }}
   annotations:
